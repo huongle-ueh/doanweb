@@ -5,9 +5,9 @@
 # https://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 8.0.31)
-# Database: ecommerce
-# Generation Time: 2022-12-15 08:31:11 +0000
+# Host: 45.77.249.54 (MySQL 5.5.56-MariaDB)
+# Database: ecommerce1
+# Generation Time: 2022-12-15 16:34:04 +0000
 # ************************************************************
 
 
@@ -27,10 +27,10 @@ SET NAMES utf8mb4;
 DROP TABLE IF EXISTS `tbl_color`;
 
 CREATE TABLE `tbl_color` (
-  `color_id` int NOT NULL AUTO_INCREMENT,
+  `color_id` int(11) NOT NULL AUTO_INCREMENT,
   `color_name` varchar(255) NOT NULL,
   PRIMARY KEY (`color_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_color` WRITE;
 /*!40000 ALTER TABLE `tbl_color` DISABLE KEYS */;
@@ -68,10 +68,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_country`;
 
 CREATE TABLE `tbl_country` (
-  `country_id` int NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) NOT NULL AUTO_INCREMENT,
   `country_name` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`country_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_country` WRITE;
 /*!40000 ALTER TABLE `tbl_country` DISABLE KEYS */;
@@ -334,39 +334,39 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_customer`;
 
 CREATE TABLE `tbl_customer` (
-  `cust_id` int NOT NULL AUTO_INCREMENT,
+  `cust_id` int(11) NOT NULL AUTO_INCREMENT,
   `cust_name` varchar(100) NOT NULL,
-  `cust_cname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
+  `cust_cname` varchar(100) DEFAULT '',
   `cust_email` varchar(100) NOT NULL,
   `cust_phone` varchar(50) NOT NULL,
-  `cust_country` int DEFAULT NULL,
+  `cust_country` int(11) DEFAULT NULL,
   `cust_address` text NOT NULL,
-  `cust_city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_state` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_zip` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_b_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_b_cname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_b_phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_b_country` int DEFAULT NULL,
-  `cust_b_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cust_b_city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_b_state` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_b_zip` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_s_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_s_cname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_s_phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_s_country` int DEFAULT NULL,
-  `cust_s_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cust_s_city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_s_state` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
-  `cust_s_zip` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
+  `cust_city` varchar(100) DEFAULT '',
+  `cust_state` varchar(100) DEFAULT '',
+  `cust_zip` varchar(30) DEFAULT '',
+  `cust_b_name` varchar(100) DEFAULT '',
+  `cust_b_cname` varchar(100) DEFAULT '',
+  `cust_b_phone` varchar(50) DEFAULT '',
+  `cust_b_country` int(11) DEFAULT NULL,
+  `cust_b_address` text,
+  `cust_b_city` varchar(100) DEFAULT '',
+  `cust_b_state` varchar(100) DEFAULT '',
+  `cust_b_zip` varchar(30) DEFAULT '',
+  `cust_s_name` varchar(100) DEFAULT '',
+  `cust_s_cname` varchar(100) DEFAULT '',
+  `cust_s_phone` varchar(50) DEFAULT '',
+  `cust_s_country` int(11) DEFAULT NULL,
+  `cust_s_address` text,
+  `cust_s_city` varchar(100) DEFAULT '',
+  `cust_s_state` varchar(100) DEFAULT '',
+  `cust_s_zip` varchar(30) DEFAULT '',
   `cust_password` varchar(100) NOT NULL,
   `cust_token` varchar(255) NOT NULL,
   `cust_datetime` varchar(100) NOT NULL,
   `cust_timestamp` varchar(100) NOT NULL,
-  `cust_status` int NOT NULL,
+  `cust_status` int(11) NOT NULL,
   PRIMARY KEY (`cust_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_customer` WRITE;
 /*!40000 ALTER TABLE `tbl_customer` DISABLE KEYS */;
@@ -386,13 +386,13 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_customer_message`;
 
 CREATE TABLE `tbl_customer_message` (
-  `customer_message_id` int NOT NULL AUTO_INCREMENT,
+  `customer_message_id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `order_detail` text NOT NULL,
-  `cust_id` int NOT NULL,
+  `cust_id` int(11) NOT NULL,
   PRIMARY KEY (`customer_message_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_customer_message` WRITE;
 /*!40000 ALTER TABLE `tbl_customer_message` DISABLE KEYS */;
@@ -415,11 +415,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_end_category`;
 
 CREATE TABLE `tbl_end_category` (
-  `ecat_id` int NOT NULL AUTO_INCREMENT,
+  `ecat_id` int(11) NOT NULL AUTO_INCREMENT,
   `ecat_name` varchar(255) NOT NULL,
-  `mcat_id` int NOT NULL,
+  `mcat_id` int(11) NOT NULL,
   PRIMARY KEY (`ecat_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_end_category` WRITE;
 /*!40000 ALTER TABLE `tbl_end_category` DISABLE KEYS */;
@@ -496,11 +496,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_faq`;
 
 CREATE TABLE `tbl_faq` (
-  `faq_id` int NOT NULL AUTO_INCREMENT,
+  `faq_id` int(11) NOT NULL AUTO_INCREMENT,
   `faq_title` varchar(255) NOT NULL,
   `faq_content` text NOT NULL,
   PRIMARY KEY (`faq_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_faq` WRITE;
 /*!40000 ALTER TABLE `tbl_faq` DISABLE KEYS */;
@@ -522,11 +522,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_language`;
 
 CREATE TABLE `tbl_language` (
-  `lang_id` int NOT NULL AUTO_INCREMENT,
+  `lang_id` int(11) NOT NULL AUTO_INCREMENT,
   `lang_name` varchar(255) NOT NULL,
   `lang_value` text NOT NULL,
   PRIMARY KEY (`lang_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_language` WRITE;
 /*!40000 ALTER TABLE `tbl_language` DISABLE KEYS */;
@@ -707,11 +707,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_mid_category`;
 
 CREATE TABLE `tbl_mid_category` (
-  `mcat_id` int NOT NULL AUTO_INCREMENT,
+  `mcat_id` int(11) NOT NULL AUTO_INCREMENT,
   `mcat_name` varchar(255) NOT NULL,
-  `tcat_id` int NOT NULL,
+  `tcat_id` int(11) NOT NULL,
   PRIMARY KEY (`mcat_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_mid_category` WRITE;
 /*!40000 ALTER TABLE `tbl_mid_category` DISABLE KEYS */;
@@ -740,8 +740,8 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_order`;
 
 CREATE TABLE `tbl_order` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `product_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
   `product_name` varchar(255) NOT NULL,
   `size` varchar(100) NOT NULL,
   `color` varchar(100) NOT NULL,
@@ -749,7 +749,7 @@ CREATE TABLE `tbl_order` (
   `unit_price` varchar(50) NOT NULL,
   `payment_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_order` WRITE;
 /*!40000 ALTER TABLE `tbl_order` DISABLE KEYS */;
@@ -759,7 +759,8 @@ VALUES
 	(1,77,'Laptop Backpack','','Black','2','100','1671041791'),
 	(2,78,'Blouse for Women','XS','Black','4','50','1671074192'),
 	(3,77,'Laptop Backpack','','Black','4','100','1671074192'),
-	(4,77,'Laptop Backpack','','Black','1','100','1671077032');
+	(4,77,'Laptop Backpack','','Black','1','100','1671077032'),
+	(5,78,'Sản phẩm cho Nam 2','XS','Black','1','50','1671117407');
 
 /*!40000 ALTER TABLE `tbl_order` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -771,7 +772,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_page`;
 
 CREATE TABLE `tbl_page` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `about_title` varchar(255) NOT NULL,
   `about_content` text NOT NULL,
   `about_banner` varchar(255) NOT NULL,
@@ -804,7 +805,7 @@ CREATE TABLE `tbl_page` (
   `vgallery_meta_keyword` text NOT NULL,
   `vgallery_meta_description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_page` WRITE;
 /*!40000 ALTER TABLE `tbl_page` DISABLE KEYS */;
@@ -823,13 +824,13 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_payment`;
 
 CREATE TABLE `tbl_payment` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `customer_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
   `customer_name` varchar(255) NOT NULL,
   `customer_email` varchar(255) NOT NULL,
   `payment_date` varchar(50) NOT NULL,
   `txnid` varchar(255) NOT NULL,
-  `paid_amount` int NOT NULL,
+  `paid_amount` int(11) NOT NULL,
   `card_number` varchar(50) NOT NULL,
   `card_cvv` varchar(10) NOT NULL,
   `card_month` varchar(10) NOT NULL,
@@ -840,7 +841,7 @@ CREATE TABLE `tbl_payment` (
   `shipping_status` varchar(20) NOT NULL,
   `payment_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_payment` WRITE;
 /*!40000 ALTER TABLE `tbl_payment` DISABLE KEYS */;
@@ -849,7 +850,8 @@ INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email
 VALUES
 	(1,1,'1','test@test.com','2022-12-14 22:16:31','',300,'','','','','','Tiền mặt','Chờ thanh toán','Chờ giao hàng','1671041791'),
 	(2,1,'1','test@test.com','2022-12-15 07:16:32','',700,'','','','','','Tiền mặt','Chờ thanh toán','Chờ giao hàng','1671074192'),
-	(3,2,'Tony','test@gmail.com','2022-12-15 08:03:52','',200,'','','','','','Tiền mặt','Chờ thanh toán','Chờ giao hàng','1671077032');
+	(3,2,'Tony','test@gmail.com','2022-12-15 08:03:52','',200,'','','','','','Tiền mặt','Chờ thanh toán','Chờ giao hàng','1671077032'),
+	(4,1,'1','test@test.com','2022-12-15 15:16:47','',150,'','','','','','Tiền mặt','Chờ thanh toán','Chờ giao hàng','1671117407');
 
 /*!40000 ALTER TABLE `tbl_payment` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -861,11 +863,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_photo`;
 
 CREATE TABLE `tbl_photo` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `caption` varchar(255) NOT NULL,
   `photo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_photo` WRITE;
 /*!40000 ALTER TABLE `tbl_photo` DISABLE KEYS */;
@@ -889,19 +891,19 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_post`;
 
 CREATE TABLE `tbl_post` (
-  `post_id` int NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `post_title` varchar(255) NOT NULL,
   `post_slug` varchar(255) NOT NULL,
   `post_content` text NOT NULL,
   `post_date` varchar(255) NOT NULL,
   `photo` varchar(255) NOT NULL,
-  `category_id` int NOT NULL,
-  `total_view` int NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `total_view` int(11) NOT NULL,
   `meta_title` varchar(255) NOT NULL,
   `meta_keyword` text NOT NULL,
   `meta_description` text NOT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_post` WRITE;
 /*!40000 ALTER TABLE `tbl_post` DISABLE KEYS */;
@@ -930,65 +932,65 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_product`;
 
 CREATE TABLE `tbl_product` (
-  `p_id` int NOT NULL AUTO_INCREMENT,
+  `p_id` int(11) NOT NULL AUTO_INCREMENT,
   `p_name` varchar(255) NOT NULL,
   `p_old_price` varchar(10) NOT NULL,
   `p_current_price` varchar(10) NOT NULL,
-  `p_qty` int NOT NULL,
+  `p_qty` int(11) NOT NULL,
   `p_featured_photo` varchar(255) NOT NULL,
   `p_description` text NOT NULL,
   `p_short_description` text NOT NULL,
   `p_feature` text NOT NULL,
   `p_condition` text NOT NULL,
   `p_return_policy` text NOT NULL,
-  `p_total_view` int NOT NULL,
-  `p_is_featured` int NOT NULL,
-  `p_is_active` int NOT NULL,
-  `ecat_id` int NOT NULL,
+  `p_total_view` int(11) NOT NULL,
+  `p_is_featured` int(11) NOT NULL,
+  `p_is_active` int(11) NOT NULL,
+  `ecat_id` int(11) NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_product` WRITE;
 /*!40000 ALTER TABLE `tbl_product` DISABLE KEYS */;
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `ecat_id`)
 VALUES
-	(77,'Sản phẩm cho Nam 1','','100',3,'product_2.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',46,1,1,1),
-	(78,'Sản phẩm cho Nam 2','110','50',6,'product_3.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',48,0,1,1),
-	(79,'Sản phẩm cho Nam 3','100','85',10,'product_4.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',9,1,1,1),
+	(77,'Sản phẩm cho Nam 1','','100',3,'product_2.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',47,1,1,1),
+	(78,'Sản phẩm cho Nam 2','110','50',5,'product_3.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',52,0,1,1),
+	(79,'Sản phẩm cho Nam 3','100','85',10,'product_4.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',10,1,1,1),
 	(80,'Sản phẩm cho Nam 4','','249',10,'product_5.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,1),
-	(81,'Sản phẩm cho Nam 5','10','1',9,'product_6.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,1),
-	(82,'Sản phẩm cho Nam 6','','100',10,'product_7.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',66,1,1,1),
+	(81,'Sản phẩm cho Nam 5','10','1',9,'product_6.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',14,1,1,1),
+	(82,'Sản phẩm cho Nam 6','','100',10,'product_7.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',69,1,1,1),
 	(83,'Sản phẩm cho Nam 7','110','50',10,'product_8.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',5,0,1,1),
 	(84,'Sản phẩm cho Nam 8','100','85',10,'product_9.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',6,1,1,1),
-	(85,'Sản phẩm cho Nam 9','','249',10,'product_10.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,1),
+	(85,'Sản phẩm cho Nam 9','','249',10,'product_10.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',6,1,1,1),
 	(86,'Sản phẩm cho Nam 10','10','1',9,'product_2.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',13,1,1,1),
-	(87,'Sản phẩm cho Nam 11','10','1',9,'product_3.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,1),
-	(88,'Sản phẩm cho Nam 12','','100',10,'product_4.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',5,1,1,1),
-	(89,'Sản phẩm cho Nữ 1','','100',3,'product_2.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',46,1,1,7),
-	(90,'Sản phẩm cho Nữ 2','110','50',6,'product_3.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',39,0,1,7),
-	(91,'Sản phẩm cho Nữ 3','100','85',10,'product_4.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',9,1,1,7),
-	(92,'Sản phẩm cho Nữ 4','','249',10,'product_5.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,7),
-	(93,'Sản phẩm cho Nữ 5','10','1',9,'product_6.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,7),
-	(94,'Sản phẩm cho Nữ 6','','100',10,'product_7.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',66,1,1,7),
-	(95,'Sản phẩm cho Nữ 7','110','50',10,'product_8.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',5,0,1,7),
-	(96,'Sản phẩm cho Nữ 8','100','85',10,'product_9.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',6,1,1,7),
-	(97,'Sản phẩm cho Nữ 9','','249',10,'product_10.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,7),
-	(98,'Sản phẩm cho Nữ 10','10','1',9,'product_2.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',13,1,1,7),
-	(99,'Sản phẩm cho Nữ 11','10','1',9,'product_3.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,7),
-	(100,'Sản phẩm cho Nữ 12','','100',10,'product_4.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',5,1,1,7),
-	(104,'Sản phẩm phụ kiện 1','','100',3,'product_2.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',46,1,1,12),
-	(105,'Sản phẩm phụ kiện 2','110','50',6,'product_3.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',39,0,1,12),
-	(106,'Sản phẩm phụ kiện 3','100','85',10,'product_4.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',9,1,1,12),
-	(107,'Sản phẩm phụ kiện 4','','249',10,'product_5.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,12),
-	(108,'Sản phẩm phụ kiện 5','10','1',9,'product_6.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,12),
-	(109,'Sản phẩm phụ kiện 6','','100',10,'product_7.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',66,1,1,12),
-	(110,'Sản phẩm phụ kiện 7','110','50',10,'product_8.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',5,0,1,12),
-	(111,'Sản phẩm phụ kiện 8','100','85',10,'product_9.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',6,1,1,12),
-	(112,'Sản phẩm phụ kiện 9','','249',10,'product_10.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,12),
-	(113,'Sản phẩm phụ kiện 10','10','1',9,'product_2.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',13,1,1,12),
-	(114,'Sản phẩm phụ kiện 11','10','1',9,'product_3.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,12),
-	(115,'Sản phẩm phụ kiện 12','','100',10,'product_4.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',5,1,1,12);
+	(87,'Sản phẩm cho Nam 11','10','1',9,'product_3.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',14,1,1,1),
+	(88,'Sản phẩm cho Nam 12','','100',10,'product_4.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',6,1,1,1),
+	(89,'Sản phẩm cho Nữ 1','','100',3,'product_2.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',51,1,1,2),
+	(90,'Sản phẩm cho Nữ 2','110','50',6,'product_3.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',42,0,1,2),
+	(91,'Sản phẩm cho Nữ 3','100','85',10,'product_4.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',11,1,1,2),
+	(92,'Sản phẩm cho Nữ 4','','249',10,'product_5.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,2),
+	(93,'Sản phẩm cho Nữ 5','10','1',9,'product_6.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,2),
+	(94,'Sản phẩm cho Nữ 6','','100',10,'product_7.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',73,1,1,2),
+	(95,'Sản phẩm cho Nữ 7','110','50',10,'product_8.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',5,0,1,2),
+	(96,'Sản phẩm cho Nữ 8','100','85',10,'product_9.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',6,1,1,2),
+	(97,'Sản phẩm cho Nữ 9','','249',10,'product_10.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,2),
+	(98,'Sản phẩm cho Nữ 10','10','1',9,'product_2.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',13,1,1,2),
+	(99,'Sản phẩm cho Nữ 11','10','1',9,'product_3.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,2),
+	(100,'Sản phẩm cho Nữ 12','','100',10,'product_4.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',5,1,1,2),
+	(104,'Sản phẩm phụ kiện 1','','100',3,'product_2.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',48,1,1,3),
+	(105,'Sản phẩm phụ kiện 2','110','50',6,'product_3.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',39,0,1,3),
+	(106,'Sản phẩm phụ kiện 3','100','85',10,'product_4.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',11,1,1,3),
+	(107,'Sản phẩm phụ kiện 4','','249',10,'product_5.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',7,1,1,3),
+	(108,'Sản phẩm phụ kiện 5','10','1',9,'product_6.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,3),
+	(109,'Sản phẩm phụ kiện 6','','100',10,'product_7.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',66,1,1,3),
+	(110,'Sản phẩm phụ kiện 7','110','50',10,'product_8.png','<p>Stripes pattern with small metal beads on strap</p><p>Pair this top with your favorite pants for that casual classy look</p><p>Size on model: S</p>','<p>This sleeveless blouse is made of 55% Viscose, 43% Polyamide, 2% Spandex<br></p>','<p><table></p><p><tr></p><p><td>Brand: </td></p><p><td>Guess</td></p><p></tr></p><p><tr></p><p><td>Occasion: </td></p><p><td>Casual Dress</td></p><p></tr></p><p><tr></p><p><td>Material: </td></p><p><td>Mixed Materials</td></p><p></tr></p><p><tr></p><p><td>Sleeve Length: </td></p><p><td>Sleeveless</td></p><p></tr></p><p></table></p>','<p>Standard Terms & Conditions<br></p>','<p>Standard Return Policy</p>',5,0,1,3),
+	(111,'Sản phẩm phụ kiện 8','100','85',10,'product_9.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p><span style=\"color: rgb(51, 51, 51); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif; font-size: 14px;\">Show off your style in Glamorous’ Shirt dress for women. Crafted with soft and rich Polyester material, this dress will offer you great comfort and flair. Flaunt in glamour by pairing it with a matching footwear to experience a sophisticated take on every day wear by making a unique style statement wherever you go.</span><br></p>','<p>N/A</p>','<p>N/A</p>','<p>N/A</p>',6,1,1,3),
+	(112,'Sản phẩm phụ kiện 9','','249',10,'product_10.png','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Looking for a way to diversify your attire for the day then go ahead and wear these jeans from the house of Guess. Made of cotton, these jeans will let your skin breathe, keeping you comfortable all day long. Team them with a white colored top to complete your casual look.</span><br></p>','<p>Standard Terms & Conditions    </p>','<p>Standard Return Policy</p>',5,1,1,3),
+	(113,'Sản phẩm phụ kiện 10','10','1',9,'product_2.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',13,1,1,3),
+	(114,'Sản phẩm phụ kiện 11','10','1',9,'product_3.png','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>These Soft Knit Cap is a warm and comfortable choice.&nbsp;</p><p>Soft material will make you feel so comfortable and will make you look so special in the crowd .</p><p>This Men\'s Soft Lined Thick Knit Cap Warm Winter beanies Hat with Fully lined it warmth and comfort, very soft.</p>','<p>Fashionys.com Standard Terms &amp; Conditions</p>','<p>Fashionys.com Standard Return Policy<br></p>',12,1,1,3),
+	(115,'Sản phẩm phụ kiện 12','','100',10,'product_4.png','<div><font color=\"#0a0a0a\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\">Distinct design and pockets galore The striking, modern look of the Skedaddle Laptop Backpack exudes confidence with multi-functional pockets and protects your laptop.<br></font></div>','Baggallini Skedaddle Laptop Backpack specifically for women.','<table>\r\n<tbody><tr>\r\n<td>Brand: </td>\r\n<td>Baggallini</td>\r\n</tr>\r\n<tr>\r\n<td>Features: </td>\r\n<td>Pockets: 3 interior slip, 3 interior zip, 4 exterior</td>\r\n</tr>\r\n<tr>\r\n<td>Target Group: </td>\r\n<td>Women</td>\r\n</tr>\r\n<tr>\r\n<td>Country of Origin: </td>\r\n<td>U.S.A</td>\r\n</tr>\r\n</tbody></table>','This product is directly shipped from U.S.A. and it includes import duty in the price.','<p>Standard Return Policy</p>',5,1,1,3);
 
 /*!40000 ALTER TABLE `tbl_product` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1000,11 +1002,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_product_color`;
 
 CREATE TABLE `tbl_product_color` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `color_id` int NOT NULL,
-  `p_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `color_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_product_color` WRITE;
 /*!40000 ALTER TABLE `tbl_product_color` DISABLE KEYS */;
@@ -1062,68 +1064,53 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_product_photo`;
 
 CREATE TABLE `tbl_product_photo` (
-  `pp_id` int NOT NULL AUTO_INCREMENT,
+  `pp_id` int(11) NOT NULL AUTO_INCREMENT,
   `photo` varchar(255) NOT NULL,
-  `p_id` int NOT NULL,
+  `p_id` int(11) NOT NULL,
   PRIMARY KEY (`pp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_product_photo` WRITE;
 /*!40000 ALTER TABLE `tbl_product_photo` DISABLE KEYS */;
 
 INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`)
 VALUES
-	(8,'8.jpg',4),
-	(13,'13.jpg',8),
-	(14,'14.jpg',8),
-	(15,'15.jpg',9),
-	(16,'16.jpg',16),
-	(17,'17.jpg',16),
-	(18,'18.jpg',16),
-	(19,'19.jpg',16),
-	(20,'20.jpg',17),
-	(21,'21.jpg',17),
-	(22,'22.jpg',17),
-	(23,'14.jpg',82),
-	(24,'15.jpg',82),
-	(25,'16.jpg',78),
-	(26,'13.jpg',82),
-	(27,'27.jpg',19),
-	(28,'28.jpg',19),
-	(29,'29.jpg',19),
-	(30,'30.jpg',20),
-	(31,'31.jpg',20),
-	(32,'32.jpg',21),
-	(33,'33.jpg',21),
-	(34,'34.jpg',22),
-	(35,'35.jpg',22),
-	(36,'36.jpg',23),
-	(37,'37.jpg',23),
-	(38,'38.jpg',24),
-	(39,'39.jpg',24),
-	(40,'40.jpg',25),
-	(41,'41.jpg',25),
-	(42,'42.jpg',26),
-	(43,'43.jpg',26),
-	(44,'44.jpg',27),
-	(45,'45.jpg',27),
-	(46,'46.jpg',28),
-	(47,'47.jpg',28),
-	(48,'48.jpg',29),
-	(49,'49.jpg',29),
-	(50,'50.jpg',31),
-	(51,'51.jpg',31),
-	(52,'52.jpg',32),
-	(53,'53.jpg',32),
-	(56,'56.jpg',34),
-	(57,'57.jpg',35),
-	(59,'59.jpg',38),
-	(60,'60.jpg',38),
-	(61,'61.jpg',42),
-	(62,'62.jpg',42),
-	(63,'63.jpg',42),
-	(103,'103.jpg',77),
-	(104,'104.jpg',78);
+	(1,'product_2.png',77),
+	(2,'product_3.png',78),
+	(3,'product_4.png',79),
+	(4,'product_5.png',80),
+	(5,'product_6.png',81),
+	(6,'product_7.png',82),
+	(7,'product_8.png',83),
+	(8,'product_9.png',84),
+	(9,'product_10.png',85),
+	(10,'product_2.png',86),
+	(11,'product_3.png',87),
+	(12,'product_4.png',88),
+	(13,'product_2.png',89),
+	(14,'product_3.png',90),
+	(15,'product_4.png',91),
+	(16,'product_5.png',92),
+	(17,'product_6.png',93),
+	(18,'product_7.png',94),
+	(19,'product_8.png',95),
+	(20,'product_9.png',96),
+	(21,'product_10.png',97),
+	(22,'product_2.png',98),
+	(23,'product_3.png',99),
+	(24,'product_4.png',100),
+	(25,'product_2.png',104),
+	(26,'product_3.png',105),
+	(27,'product_4.png',106),
+	(28,'product_5.png',107),
+	(29,'product_6.png',108),
+	(30,'product_7.png',109),
+	(31,'product_8.png',110),
+	(32,'product_9.png',111),
+	(33,'product_10.png',112),
+	(34,'product_2.png',113),
+	(35,'product_3.png',114),
+	(36,'product_4.png',115);
 
 /*!40000 ALTER TABLE `tbl_product_photo` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1135,11 +1122,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_product_size`;
 
 CREATE TABLE `tbl_product_size` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `size_id` int NOT NULL,
-  `p_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `size_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_product_size` WRITE;
 /*!40000 ALTER TABLE `tbl_product_size` DISABLE KEYS */;
@@ -1252,13 +1239,13 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_rating`;
 
 CREATE TABLE `tbl_rating` (
-  `rt_id` int NOT NULL AUTO_INCREMENT,
-  `p_id` int NOT NULL,
-  `cust_id` int NOT NULL,
+  `rt_id` int(11) NOT NULL AUTO_INCREMENT,
+  `p_id` int(11) NOT NULL,
+  `cust_id` int(11) NOT NULL,
   `comment` text NOT NULL,
-  `rating` int NOT NULL,
+  `rating` int(11) NOT NULL,
   PRIMARY KEY (`rt_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -1268,12 +1255,12 @@ CREATE TABLE `tbl_rating` (
 DROP TABLE IF EXISTS `tbl_service`;
 
 CREATE TABLE `tbl_service` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `photo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -1283,79 +1270,79 @@ CREATE TABLE `tbl_service` (
 DROP TABLE IF EXISTS `tbl_settings`;
 
 CREATE TABLE `tbl_settings` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `favicon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `footer_about` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `footer_copyright` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contact_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contact_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `contact_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `contact_fax` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `contact_map_iframe` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `receive_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `receive_email_subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `receive_email_thank_you_message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `forget_password_message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `total_recent_post_footer` int NOT NULL,
-  `total_popular_post_footer` int NOT NULL,
-  `total_recent_post_sidebar` int NOT NULL,
-  `total_popular_post_sidebar` int NOT NULL,
-  `total_featured_product_home` int NOT NULL,
-  `total_latest_product_home` int NOT NULL,
-  `total_popular_product_home` int NOT NULL,
-  `meta_title_home` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `meta_keyword_home` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `meta_description_home` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `banner_login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_registration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_forget_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_reset_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_search` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_cart` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_checkout` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_product_category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `banner_blog` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `cta_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `cta_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `cta_read_more_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `cta_read_more_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `cta_photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `featured_product_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `featured_product_subtitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `latest_product_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `latest_product_subtitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `popular_product_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `popular_product_subtitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `testimonial_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `testimonial_subtitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `testimonial_photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `blog_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `blog_subtitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `newsletter_text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `paypal_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `stripe_public_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `stripe_secret_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `bank_detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `before_head` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `after_body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `before_body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `home_service_on_off` int NOT NULL,
-  `home_welcome_on_off` int NOT NULL,
-  `home_featured_product_on_off` int NOT NULL,
-  `home_latest_product_on_off` int NOT NULL,
-  `home_popular_product_on_off` int NOT NULL,
-  `home_testimonial_on_off` int NOT NULL,
-  `home_blog_on_off` int NOT NULL,
-  `newsletter_on_off` int NOT NULL,
-  `ads_above_welcome_on_off` int NOT NULL,
-  `ads_above_featured_product_on_off` int NOT NULL,
-  `ads_above_latest_product_on_off` int NOT NULL,
-  `ads_above_popular_product_on_off` int NOT NULL,
-  `ads_above_testimonial_on_off` int NOT NULL,
-  `ads_category_sidebar_on_off` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `logo` varchar(255) NOT NULL DEFAULT '',
+  `favicon` varchar(255) NOT NULL DEFAULT '',
+  `footer_about` text NOT NULL,
+  `footer_copyright` text NOT NULL,
+  `contact_address` text NOT NULL,
+  `contact_email` varchar(255) NOT NULL DEFAULT '',
+  `contact_phone` varchar(255) NOT NULL DEFAULT '',
+  `contact_fax` varchar(255) NOT NULL DEFAULT '',
+  `contact_map_iframe` text NOT NULL,
+  `receive_email` varchar(255) NOT NULL DEFAULT '',
+  `receive_email_subject` varchar(255) NOT NULL DEFAULT '',
+  `receive_email_thank_you_message` text NOT NULL,
+  `forget_password_message` text NOT NULL,
+  `total_recent_post_footer` int(11) NOT NULL,
+  `total_popular_post_footer` int(11) NOT NULL,
+  `total_recent_post_sidebar` int(11) NOT NULL,
+  `total_popular_post_sidebar` int(11) NOT NULL,
+  `total_featured_product_home` int(11) NOT NULL,
+  `total_latest_product_home` int(11) NOT NULL,
+  `total_popular_product_home` int(11) NOT NULL,
+  `meta_title_home` text NOT NULL,
+  `meta_keyword_home` text NOT NULL,
+  `meta_description_home` text NOT NULL,
+  `banner_login` varchar(255) NOT NULL DEFAULT '',
+  `banner_registration` varchar(255) NOT NULL DEFAULT '',
+  `banner_forget_password` varchar(255) NOT NULL DEFAULT '',
+  `banner_reset_password` varchar(255) NOT NULL DEFAULT '',
+  `banner_search` varchar(255) NOT NULL DEFAULT '',
+  `banner_cart` varchar(255) NOT NULL DEFAULT '',
+  `banner_checkout` varchar(255) NOT NULL DEFAULT '',
+  `banner_product_category` varchar(255) NOT NULL DEFAULT '',
+  `banner_blog` varchar(255) NOT NULL DEFAULT '',
+  `cta_title` varchar(255) NOT NULL DEFAULT '',
+  `cta_content` text NOT NULL,
+  `cta_read_more_text` varchar(255) NOT NULL DEFAULT '',
+  `cta_read_more_url` varchar(255) NOT NULL DEFAULT '',
+  `cta_photo` varchar(255) NOT NULL DEFAULT '',
+  `featured_product_title` varchar(255) NOT NULL DEFAULT '',
+  `featured_product_subtitle` varchar(255) NOT NULL DEFAULT '',
+  `latest_product_title` varchar(255) NOT NULL DEFAULT '',
+  `latest_product_subtitle` varchar(255) NOT NULL DEFAULT '',
+  `popular_product_title` varchar(255) NOT NULL DEFAULT '',
+  `popular_product_subtitle` varchar(255) NOT NULL DEFAULT '',
+  `testimonial_title` varchar(255) NOT NULL DEFAULT '',
+  `testimonial_subtitle` varchar(255) NOT NULL DEFAULT '',
+  `testimonial_photo` varchar(255) NOT NULL DEFAULT '',
+  `blog_title` varchar(255) NOT NULL DEFAULT '',
+  `blog_subtitle` varchar(255) NOT NULL DEFAULT '',
+  `newsletter_text` text NOT NULL,
+  `paypal_email` varchar(255) NOT NULL DEFAULT '',
+  `stripe_public_key` varchar(255) NOT NULL DEFAULT '',
+  `stripe_secret_key` varchar(255) NOT NULL DEFAULT '',
+  `bank_detail` text NOT NULL,
+  `before_head` text NOT NULL,
+  `after_body` text NOT NULL,
+  `before_body` text NOT NULL,
+  `home_service_on_off` int(11) NOT NULL,
+  `home_welcome_on_off` int(11) NOT NULL,
+  `home_featured_product_on_off` int(11) NOT NULL,
+  `home_latest_product_on_off` int(11) NOT NULL,
+  `home_popular_product_on_off` int(11) NOT NULL,
+  `home_testimonial_on_off` int(11) NOT NULL,
+  `home_blog_on_off` int(11) NOT NULL,
+  `newsletter_on_off` int(11) NOT NULL,
+  `ads_above_welcome_on_off` int(11) NOT NULL,
+  `ads_above_featured_product_on_off` int(11) NOT NULL,
+  `ads_above_latest_product_on_off` int(11) NOT NULL,
+  `ads_above_popular_product_on_off` int(11) NOT NULL,
+  `ads_above_testimonial_on_off` int(11) NOT NULL,
+  `ads_category_sidebar_on_off` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_settings` WRITE;
 /*!40000 ALTER TABLE `tbl_settings` DISABLE KEYS */;
@@ -1374,11 +1361,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_shipping_cost`;
 
 CREATE TABLE `tbl_shipping_cost` (
-  `shipping_cost_id` int NOT NULL AUTO_INCREMENT,
-  `country_id` int NOT NULL,
+  `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) NOT NULL,
   `amount` varchar(20) NOT NULL,
   PRIMARY KEY (`shipping_cost_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -1388,10 +1375,10 @@ CREATE TABLE `tbl_shipping_cost` (
 DROP TABLE IF EXISTS `tbl_shipping_cost_all`;
 
 CREATE TABLE `tbl_shipping_cost_all` (
-  `sca_id` int NOT NULL AUTO_INCREMENT,
+  `sca_id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` varchar(20) NOT NULL,
   PRIMARY KEY (`sca_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_shipping_cost_all` WRITE;
 /*!40000 ALTER TABLE `tbl_shipping_cost_all` DISABLE KEYS */;
@@ -1410,10 +1397,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_size`;
 
 CREATE TABLE `tbl_size` (
-  `size_id` int NOT NULL AUTO_INCREMENT,
+  `size_id` int(11) NOT NULL AUTO_INCREMENT,
   `size_name` varchar(255) NOT NULL,
   PRIMARY KEY (`size_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_size` WRITE;
 /*!40000 ALTER TABLE `tbl_size` DISABLE KEYS */;
@@ -1458,22 +1445,22 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_slider`;
 
 CREATE TABLE `tbl_slider` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `heading` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `button_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `button_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photo` varchar(255) NOT NULL DEFAULT '',
+  `heading` varchar(255) NOT NULL DEFAULT '',
+  `content` text NOT NULL,
+  `button_text` varchar(255) NOT NULL DEFAULT '',
+  `button_url` varchar(255) NOT NULL DEFAULT '',
+  `position` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_slider` WRITE;
 /*!40000 ALTER TABLE `tbl_slider` DISABLE KEYS */;
 
 INSERT INTO `tbl_slider` (`id`, `photo`, `heading`, `content`, `button_text`, `button_url`, `position`)
 VALUES
-	(1,'slider_1.jpg','Mùa xuân / Bộ sưu tập mùa xuân 2022','Giảm giá lên đến 30% cho BST mới','Mua hàng ngay','http://localhost/product-category.php?id=4&type=mid-category','Center');
+	(1,'slider_1.jpg','Mùa xuân / Bộ sưu tập mùa xuân 2022','Giảm giá lên đến 30% cho BST mới','Mua hàng ngay','http://doanweb.bantinmevabe.com/product-category.php?id=1&type=top-category','Center');
 
 /*!40000 ALTER TABLE `tbl_slider` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1485,12 +1472,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_social`;
 
 CREATE TABLE `tbl_social` (
-  `social_id` int NOT NULL AUTO_INCREMENT,
+  `social_id` int(11) NOT NULL AUTO_INCREMENT,
   `social_name` varchar(30) NOT NULL,
   `social_url` varchar(255) NOT NULL,
   `social_icon` varchar(30) NOT NULL,
   PRIMARY KEY (`social_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_social` WRITE;
 /*!40000 ALTER TABLE `tbl_social` DISABLE KEYS */;
@@ -1524,14 +1511,14 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_subscriber`;
 
 CREATE TABLE `tbl_subscriber` (
-  `subs_id` int NOT NULL AUTO_INCREMENT,
+  `subs_id` int(11) NOT NULL AUTO_INCREMENT,
   `subs_email` varchar(255) NOT NULL,
   `subs_date` varchar(100) NOT NULL,
   `subs_date_time` varchar(100) NOT NULL,
   `subs_hash` varchar(255) NOT NULL,
-  `subs_active` int NOT NULL,
+  `subs_active` int(11) NOT NULL,
   PRIMARY KEY (`subs_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -1541,12 +1528,12 @@ CREATE TABLE `tbl_subscriber` (
 DROP TABLE IF EXISTS `tbl_top_category`;
 
 CREATE TABLE `tbl_top_category` (
-  `tcat_id` int NOT NULL AUTO_INCREMENT,
-  `tcat_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `show_on_menu` int NOT NULL,
-  `photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tcat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tcat_name` varchar(255) NOT NULL DEFAULT '',
+  `show_on_menu` int(11) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`tcat_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_top_category` WRITE;
 /*!40000 ALTER TABLE `tbl_top_category` DISABLE KEYS */;
@@ -1567,7 +1554,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_user`;
 
 CREATE TABLE `tbl_user` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(100) NOT NULL,
@@ -1576,7 +1563,7 @@ CREATE TABLE `tbl_user` (
   `role` varchar(30) NOT NULL,
   `status` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
@@ -1595,11 +1582,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tbl_video`;
 
 CREATE TABLE `tbl_video` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `iframe_code` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tbl_video` WRITE;
 /*!40000 ALTER TABLE `tbl_video` DISABLE KEYS */;
